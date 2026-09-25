@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мастерская Скинов Minecraft</title>
+  <!-- Подключаем пиксельный шрифт -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page__body">
+
+  <!-- 1. HEADER (Шапка сайта) -->
+  <header class="mc-header">
+    <div class="mc-header__logo-block">
+      <div class="mc-header__avatar">
+        <div class="mc-header__steve-eyes"></div>
+      </div>
+      <span class="mc-header__nickname">MIKHAIL_SKINS</span>
+    </div>
+
+    <nav class="mc-header__nav">
+      <a href="#gallery" class="mc-header__nav-link">🎒<span class="mc-header__nav-text"> Галерея</span></a>
+      <a href="#prices" class="mc-header__nav-link">💎<span class="mc-header__nav-text"> Цены</span></a>
+      <a href="#footer" class="mc-header__nav-link">📝<span class="mc-header__nav-text"> Контакты</span></a>
+    </nav>
+
+    <div class="mc-header__actions">
+      <div class="mc-header__socials">
+        <a href="#" class="mc-header__icon-link" title="Discord">💬</a>
+        <a href="#" class="mc-header__icon-link" title="Telegram">✈️</a>
+        <a href="https://x.com" target="_blank" class="mc-header__icon-link" title="Twitter / X">🐦</a>
+      </div>
+      <a href="#footer" class="mc-btn-cta">ЗАКАЗАТЬ</a>
+    </div>
+  </header>
+
+  <!-- 2. MAIN (Главное содержимое) -->
+  <main class="mc-main">
+    <!-- Секция Галереи -->
+    <div id="gallery">
+      <section class="hero-section">
+        <h1 class="hero-section__title">УНИКАЛЬНЫЕ СКИНЫ НА ЗАКАЗ</h1>
+        <p class="hero-section__subtitle">Прокачай свой внешний вид в кубическом мире (Каталог из 100+ моделей)</p>
+      </section>
+
+      <!-- Панель фильтров и поиска -->
+      <section class="mc-filter-bar">
+        <div class="mc-filter-bar__search-block">
+          <input type="text" placeholder="Поиск скина по названию..." class="mc-filter-bar__input">
+        </div>
+        <div class="mc-filter-bar__buttons">
+          <button class="mc-filter-bar__btn mc-filter-bar__btn--active">Все скины</button>
+          <button class="mc-filter-bar__btn">Стив (Steve 64x64)</button>
+          <button class="mc-filter-bar__btn">Алекс (Alex 3px)</button>
+          <button class="mc-filter-bar__btn">HD Скины</button>
+          <button class="mc-filter-bar__btn">3D Модели</button>
+        </div>
+      </section>
+
+      <!-- Сетка со скинами (генерируется через JS) -->
+      <section class="skins-grid"></section>
+    </div>
+
+    <!-- Секция Цен -->
+    <div id="prices" class="prices-section">
+      <h2 class="prices-section__title">💎 НАШИ ТАРИФЫ</h2>
+      <div class="prices-section__table-container">
+        <table class="mc-table">
+          <thead>
+            <tr class="mc-table__row mc-table__row--header">
+              <th class="mc-table__cell mc-table__cell--th">ТИП МОДЕЛИ</th>
+              <th class="mc-table__cell mc-table__cell--th">ЧТО ВХОДИТ</th>
+              <th class="mc-table__cell mc-table__cell--th">СРОКИ</th>
+              <th class="mc-table__cell mc-table__cell--th">ЦЕНА</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="mc-table__row">
+              <td class="mc-table__cell">Обычный (Steve/Alex)</td>
+              <td class="mc-table__cell">Разрешение 64x64, детальная прорисовка, 2 слоя одежды</td>
+              <td class="mc-table__cell">1-2 дня</td>
+              <td class="mc-table__cell mc-table__cell--price">300₽</td>
+            </tr>
+            <tr class="mc-table__row">
+              <td class="mc-table__cell">HD Скин (Высокое качество)</td>
+              <td class="mc-table__cell">Повышенная детализация 128x128 или 256x256, сложные градиенты</td>
+              <td class="mc-table__cell">2-3 дня</td>
+              <td class="mc-table__cell mc-table__cell--price">600₽</td>
+            </tr>
+            <tr class="mc-table__row">
+              <td class="mc-table__cell">Кастомная 3D Модель</td>
+              <td class="mc-table__cell">Экспорт в Blockbench, уникальная геометрия, текстуры высокого разрешения</td>
+              <td class="mc-table__cell">3-5 дней</td>
+              <td class="mc-table__cell mc-table__cell--price">1200₽</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prices-section__info-box">
+        <p class="prices-section__info-item">❗ РАБОТА НАЧИНАЕТСЯ ПОСЛЕ ПРЕДОПЛАТЫ 50%</p>
+        <p class="prices-section__info-item">🔄 ДО 3-Х ПРАВОК НА СТАДИИ РАЗРАБОТКИ БЕСПЛАТНО</p>
+        <p class="prices-section__info-item">📁 ГОТОВЫЙ СКИН ОТПРАВЛЯЕТСЯ В ФОРМАТЕ .PNG (ИЛИ .BBMODEL ДЛЯ 3D)</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- 3. FOOTER -->
+  <footer class="mc-footer" id="footer">
+    <div class="mc-footer__contacts">
+      <p class="mc-footer__contacts-title"> НАШИ КОНТАКТЫ:</p>
+      <div class="mc-footer__contacts-grid">
+        <a href="#" class="mc-footer__contact-item mc-footer__contact-item--tg">✈️ Telegram: @crafter_skins</a>
+        <a href="#" class="mc-footer__contact-item mc-footer__contact-item--ds">💬 Discord: CrafterServer</a>
+        <a href="#" class="mc-footer__contact-item mc-footer__contact-item--tw">🐦 Twitter: @crafter_skins</a>
+      </div>
+    </div>
+    <p class="mc-footer__text">© 2026 MIKHAIL_SKINS. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+    <p class="mc-footer__disclaimer">NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG.</p>
+    <div class="mc-footer__links">
+      <a href="#" class="mc-footer__link">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>

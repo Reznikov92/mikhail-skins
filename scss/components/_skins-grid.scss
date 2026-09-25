@@ -1,0 +1,147 @@
+@use '../abstract/variables' as vars;
+@use '../abstract/mixins' as mix;
+
+/* ================= КОНТЕЙНЕР MAIN ================= */
+.mc-main {
+  flex: 1;
+  padding: 2.5rem 5%; 
+  max-width: 75rem; 
+  margin: 0 auto; 
+  width: 100%;
+}
+
+/* ================= СЕКЦИЯ ПРИВЕТСТВИЯ ================= */
+.hero-section {
+  text-align: center;
+  margin-bottom: 1.875rem;
+
+  &__title {
+    font-size: 1.375rem;
+    margin-bottom: 0.75rem;
+    text-shadow: 0.1875rem 0.1875rem 0 #000000;
+    color: vars.color(accent-gold);
+    line-height: 1.4;
+
+    @include mix.respond-to('mobile') { font-size: 1rem; }
+    @include mix.respond-to('small-mobile') { font-size: 0.8125rem; }
+  }
+
+  &__subtitle {
+    font-size: 0.6875rem;
+    color: vars.color(text-gray);
+    line-height: 1.6;
+
+    @include mix.respond-to('mobile') { font-size: 0.5rem; }
+  }
+}
+
+/* ================= РЕЗИНОВАЯ СЕТКА ================= */
+.skins-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr)) !important; 
+  gap: 1.25rem !important; 
+  margin-bottom: 3.125rem !important; 
+
+  @include mix.respond-to('mobile') {
+    grid-template-columns: 1fr !important;
+    gap: 0.9375rem !important;
+  }
+}
+
+/* ================= СТИЛИ КАРТОЧЕК С ИСПРАВЛЕННОЙ АЛМАЗНОЙ ПОДСВЕТКОЙ ================= */
+.mc-card {
+  background-color: vars.color(bg-ui) !important;
+  
+  // ВОТ ЗДЕСЬ СТРОЧКА ТЕПЕРЬ ПОЛНОСТЬЮ ИСПРАВЛЕНА:
+  border: 0.25rem solid vars.color(border-light) !important; 
+  box-shadow: 0 0.375rem 0 vars.color(bg-dark) !important; 
+  
+  padding: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100% !important;
+  
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out !important;
+
+    // ЭФФЕКТ ВЫДЕЛЕНИЯ ПРИ НАВЕДЕНИИ МЫШКИ
+  &:hover {
+    transform: translateY(-0.3125rem) !important; 
+    border-color: vars.color(accent-diamond) !important; // Алмазная рамка
+    
+    box-shadow: 0 0.6875rem 0 vars.color(bg-dark), 
+                0 0 0.9375rem rgba(85, 255, 255, 0.4) !important; // Алмазное свечение
+                
+    // 👇 ВОТ ЭТА НОВАЯ СТРОЧКА! Принудительно меняет курсор на палец при наведении на карту
+    cursor: pointer !important; 
+
+    .mc-card__name {
+      color: vars.color(accent-gold) !important;
+      transition: color 0.2s ease-out;
+    }
+  }
+
+  @include mix.respond-to('small-mobile') { padding: 0.75rem; }
+
+  &__preview {
+    width: 100%;
+    height: 11.25rem;
+    border: 0.1875rem solid #000000 !important;
+    margin-bottom: 0.9375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(45deg, #2d2d2d 25%, transparent 25%), 
+                      linear-gradient(-45deg, #2d2d2d 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #2d2d2d 75%), 
+                      linear-gradient(-45deg, transparent 75%, #2d2d2d 75%) !important;
+    background-size: 1.25rem 1.25rem !important;
+    background-color: #1a1a1a !important;
+  }
+
+  &__img {
+    max-width: 100%;
+    max-height: 90%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+
+  &__name {
+    font-size: 0.625rem;
+    margin-bottom: 0.625rem;
+    min-height: 1.875rem;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    transition: color 0.2s ease-out;
+  }
+
+  &__tag {
+    font-size: 0.5rem;
+    padding: 0.25rem 0.375rem;
+    border: 0.125rem solid #000;
+    margin-bottom: 0.9375rem;
+
+    &--hd { background-color: vars.color(tag-hd) !important; color: #fff; }
+    &--classic { background-color: vars.color(tag-classic) !important; color: #fff; }
+    &--alex { background-color: vars.color(tag-alex) !important; color: #fff; }
+    &--3d { background-color: vars.color(tag-3d) !important; color: #000; }
+  }
+
+  &__btn-download {
+    font-family: vars.$font-main;
+    font-size: 0.5625rem;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: vars.color(btn-gray) !important;
+    border: 0.125rem solid #000 !important;
+    cursor: pointer;
+    color: #000000 !important;
+    @include mix.pixel-border-inset(#555555, #ffffff);
+
+    &:hover { background-color: vars.color(btn-gray-hover) !important; }
+    &:active { transform: translateY(0.0625rem); box-shadow: inset 0.125rem 0.125rem 0 #555555 !important; }
+  }
+}
